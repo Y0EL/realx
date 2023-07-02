@@ -1,10 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Animasi Hujan</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CS50x Featuring</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Montserrat', sans-serif; /* Menggunakan font Montserrat */
+      color: #fff;
+    }
+
+
+    h1 {
+      font-size: 3vw; /* Ukuran font responsif */
+      margin-bottom: 3vw; /* Margin responsif */
+      text-shadow: 0 0 0.4vw #fff; /* Ukuran outline responsif */
+    }
+
+    .transparent-button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      padding: 1.5vw; /* Padding responsif */
+      font-size: 2.5vw; /* Ukuran font responsif */
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5%;
+      margin-top: 2vw; /* Margin responsif */
+      margin-bottom: 2vw; /* Margin responsif */
+      border: 0.4vw solid #fff; /* Ukuran border responsif */
+      width: auto; /* Lebar responsif */
+      max-width: 200px; /* Batasan lebar maksimal */
+      height: 5%; /* Tinggi menyesuaikan konten */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .transparent-button:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  </style>
 </head>
 <body>
-  <div class="rain"></div>
+  <h1>Prompt Writer</h1>
+  <a href="https://tiktok.com/@yoelspw" class="transparent-button">Cari Tahu</a>
+  <script>
+    function rain() {
+      let amount = 150;
+      let body = document.querySelector('body');
+      let i = 0;
+      while(i < amount) {
+        let drop = document.createElement('i');
+
+        let size = Math.random() * 5;
+        let posX = Math.floor(Math.random() * window.innerWidth);
+        let delay = Math.random() * -20;
+        let duration = Math.random() * 5;
+
+        drop.style.width = 0.2 + size + 'px';
+        drop.style.left = posX + size + 'px';
+        drop.style.animationDelay = delay + 's';
+        drop.style.animationDuration = (1 + duration) + 's';
+        body.appendChild(drop);
+        i++
+      }
+    }
+
+    rain();
+  </script>
+  <script>
+    // Memblokir klik kanan
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+  </script>
+  <footer>
+    <img src="man.png" alt="Man SVG">
+    <style>
+        footer {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          justify-content: center;
+          align-items: flex-end; /* Align items to the bottom */
+          flex-direction: column;
+        }
+
+        footer img {
+          width: 100px;
+          margin-top: 20px;
+        }
+      </style>
+  </footer>
+  <audio src="audio.mp3" autoplay loop>
+    Maap bre, gua kaga di ijinin kasih hujan:/.
+  </audio>
 </body>
 </html>
